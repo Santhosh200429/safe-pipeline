@@ -5,7 +5,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.santhosh</groupId>
+    <groupId>com.github.Santhosh200429</groupId>
     <artifactId>safe-pipeline</artifactId>
     <version>1.0.0</version>
     <name>safe-pipeline</name>
@@ -124,7 +124,7 @@
                 </executions>
             </plugin>
 
-            <!-- GPG Plugin - sign artifacts -->
+            <!-- GPG Plugin - sign artifacts (disabled for now) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
@@ -138,6 +138,9 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
             </plugin>
 
             <!-- Nexus Staging Plugin - deploy to Maven Central -->
@@ -149,7 +152,8 @@
                 <configuration>
                     <serverId>ossrh</serverId>
                     <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                    <skipStaging>true</skipStaging>
                 </configuration>
             </plugin>
 
